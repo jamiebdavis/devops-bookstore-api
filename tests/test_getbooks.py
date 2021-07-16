@@ -2,6 +2,7 @@ import unittest
 
 from api import app
 
+
 class GetBooksTest(unittest.TestCase):
 
     def setUp(self):
@@ -9,12 +10,12 @@ class GetBooksTest(unittest.TestCase):
 
     def test_successful_getbooks(self):
 
-        response = self.app.get('/books', headers={"Content-Type": "application/json"})
+        response = self.app.get(
+            '/books', headers={"Content-Type": "application/json"})
         self.assertEqual(200, response.status_code)
 
     def test_successful_getbookssize(self):
 
-        response = self.app.get('/books', headers={"Content-Type": "application/json"})
-        self.assertEqual(3, len(response.json['books']))
-
-
+        response = self.app.get(
+            '/books', headers={"Content-Type": "application/json"})
+        self.assertEqual(5, len(response.json['books']))
